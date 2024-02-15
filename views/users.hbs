@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style>
+        /* Custom styles */
+        .product-card {
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px; /* Adjust as needed */
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 1rem;
+            background-color: #f7fafc;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .product-description {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+    </style>
+</head>
+
+<body>
+    {{>nav}}
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                {{#each user}}
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <div class="product-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md">
+                        <div class="mt-4 product-details">
+                            <h2 class="product-title text-gray-900">username - {{username}}</h2>
+                            <p class="product-price">email - {{email}}</p>
+                            <p class="product-description">password - {{password}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+</body>
+
+</html>

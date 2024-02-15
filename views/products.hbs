@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style>
+      
+        .product-card {
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 1rem;
+            background-color: #f7fafc;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .product-description {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+        .button{
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight:bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn{
+    display: flex;
+    justify-content: space-around;
+}
+#remove{
+    background-color: red;
+}
+       .btn2 {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color:#232323;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn2:hover {
+    background-color: #F7E180;
+    transform: translateY(-2px);
+    color: black;
+  }
+  
+  .btn2:active {
+    background-color: #1f618d;
+  }
+    </style>
+</head>
+
+<body>
+
+   <header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/397/015/original/modern-company-logo-design-vector.jpg" width="40px" alt="">
+      <span class="ml-3 text-xl">My Store</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-space-around">
+     <button class="btn2"> <a href="/" class="mr-10 hover:text-gray-900">Home</a></button>
+    </nav>
+  </div>
+</header>
+
+ <form action="/search" method="get">
+    <input type="text" name="keyword" placeholder="Search...">
+    <button type="submit">Search</button>
+ </form>
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                {{#each product}}
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <div class="product-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md">
+                        <a href="/product/{{_id}}" class="block relative">
+                            <img alt="Product image" class="product-image object-cover object-center w-full h-48" src="{{image}}">
+                        </a>
+                        <div class="mt-4 product-details">
+                            <h2 class="product-title text-gray-900">{{name}}</h2>
+                            <p class="product-price">Rs. {{price}}</p>
+                            <p class="product-description">{{desc}}</p>
+                            <div class="btn">
+                          <a href='/removeProduct/{{id}}'><button id="remove" class="button">Remove</button></a>
+                          <a href="/updateProduct/{{id}}"><button class="button">Update</button></a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+</body>
+
+</html>
