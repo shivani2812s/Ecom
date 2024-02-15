@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "Dev":"nodemon server.js",
+    "Dev":"node server.js",
     "build": "echo \"Write your build steps here\""
   },
   "dependencies": {
