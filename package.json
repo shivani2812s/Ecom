@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "Dev":"nodemon server.js"
+    "Dev":"nodemon server.js",
+    "build": "echo \"Write your build steps here\""
   },
   "dependencies": {
     "body-parser": "^1.20.2",
