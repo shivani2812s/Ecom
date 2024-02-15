@@ -91,6 +91,30 @@
   .btn2:active {
     background-color: #1f618d;
   }
+   .btn3 {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color:#232323;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn3:hover {
+    background-color: #F7E180;
+    transform: translateY(-2px);
+    color: black;
+  }
+  
+  .btn3:active {
+    background-color: #1f618d;
+  }
     </style>
 </head>
 
@@ -104,14 +128,16 @@
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-space-around">
      <button class="btn2"> <a href="/" class="mr-10 hover:text-gray-900">Home</a></button>
+     
     </nav>
+    
   </div>
 </header>
 
- <form action="/search" method="get">
+ {{!-- <form action="/search" method="get">
     <input type="text" name="keyword" placeholder="Search...">
     <button type="submit">Search</button>
- </form>
+ </form> --}}
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">

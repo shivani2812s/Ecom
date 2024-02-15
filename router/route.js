@@ -51,7 +51,7 @@ router.post('/addproduct',async (req, res) => {
                 price,
             });
             await newProduct.save();
-            res.status(201).json({ message: "product added successfully", product: newProduct });
+            res.redirect('/products');
         } catch (error) {
             console.log(error);
             res.status(500).json({ message: 'error adding new product' });

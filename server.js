@@ -2,10 +2,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const jwt=require('jsonwebtoken');
+require('dotenv').config();
 
 
 const app = express();
-const port = 3001;
+const port = process.env.port;
+console.log(port);
 const session = require('express-session');
 const path = require('path');
 const hbs = require('hbs');
@@ -69,6 +71,6 @@ mongoose.connect(DB, {
 
 app.use('/',router);
 
-app.listen(port, () => {
+app.listen(port||3001, () => {
     console.log("Server running on port", port);
 });
