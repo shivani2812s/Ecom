@@ -46,11 +46,47 @@
             font-size: 0.875rem;
             color: #718096;
         }
+         .btn3 {
+    display: inline-block;
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color:#232323;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn3:hover {
+    background-color: #F7E180;
+    transform: translateY(-2px);
+    color: black;
+  }
+  
+  .btn3:active {
+    background-color: #1f618d;
+  }
     </style>
 </head>
 
 <body>
-    {{>nav}}
+ <header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/397/015/original/modern-company-logo-design-vector.jpg" width="40px" alt="">
+      <span class="ml-3 text-xl">My Store</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+     <button class="btn3"> <a href="/" class="mr-5 hover:text-gray-900">Home</a></button>
+   
+    </nav>
+  </div>
+</header>
+
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
