@@ -263,6 +263,22 @@ button {
     -webkit-transform: translateY(calc(100% - 42px));
   }
 }
+.btn2{
+    background-color: #007bff; /* Set the background color */
+    color: #fff; /* Set the text color */
+    padding: 0.5px 26px; /* Add padding to the button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border radius to create rounded corners */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Add transition effect for smoother hover effect */
+}
+
+/* Hover effect */
+.btn2:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
    </style>
 </head>
 <body>
@@ -285,24 +301,19 @@ button {
     <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
     <nav>
     {{#if admin}}
-        <a href="/logout">Logout Admin</a>
+       <button class="btn2"> <a href="/logout">Logout Admin</a></button>
     {{else if user}}
-        <a href="/logout">Logout User</a>
+        <button class="btn2"><a href="/logout">Logout User</a></button>
     {{else}}
-        <a href="/login">Login</a>
+       <button class="btn2"><a href="/login">Login</a></button> 
     {{/if}}
 </nav>
-
-
       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
         <path d="M5 12h14M12 5l7 7-7 7"></path>
       </svg>
     </button>
   </div>
 </header>
-
-
-
  </div>
      <section class="game-section">
   <h2 class="line-title">trending Products</h2>
