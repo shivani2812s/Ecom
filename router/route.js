@@ -160,4 +160,6 @@ router.get('/resetpassword/:id/:token',(req,res)=>{
 });
 router.post('/resetpassword');
 
+
+
 module.exports = router;
