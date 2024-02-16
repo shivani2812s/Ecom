@@ -15,20 +15,13 @@ const Admin = require('../model/adminModel');
 
 const JWT_SECRET='xyz';
 
-const emailConfig = {
-    service: '', 
-    auth: {
-      user: '',
-      pass: '',
-    },
-  };
-  const transporter = nodemailer.createTransport(smtpTransport(emailConfig));
-
 router.get('/index',viewindex.viewindex);
 
 router.get('/',viewindex.viewHome);
 
 router.get('/users',userController.viewUsers);
+
+router.get('/signup',userController.viewsignup)
 
 router.get('/login',userController.viewlogin);
 
@@ -78,10 +71,21 @@ const payload={
     id:user.id
 }
 const token=jwt.sign(payload,secret,{expiresIn:'15m'})
-const link=`http://localhost:3001/resetpassword/${user.id}/${token}`
+const link=`http://localhost:3001/forgotpassword/${user.id}/${token}`
 console.log(link);
+
+nodemailer.createTestAccount();
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'ricky.schumm99@ethereal.email',
+        pass: 'U1wYQqwhgPdz13N6s3'
+    }
+});
 const mailOptions = {
-    from: 'shivani.s@codestoresolutions.com',
+    from: '"Shivani" <shivanisingh36813@gmail.com>',
     to: email,
     subject: 'Reset Password',
     text: `Click the following link to reset your password: ${link}`,
@@ -96,7 +100,29 @@ const mailOptions = {
     res.status(200).send('Reset password link sent successfully.');
   });
 });
+router.get('/forgotpassword/:id/:token',(req,res,next)=>{
 
+   const{id,token}=req.params;
+   const user= Admin.findOne({ _id:id });
+    res.render('resetpassword',{email:user.email});
+})
+router.post('/forgotpassword/:id/:token',(req,res,next)=>{
+    const{id,token}=req.params;
+    const{password,password2}=req.body;
+    const user= Admin.findOne({ _id:id });
+    const secret=JWT_SECRET+user.password;
+       if(password==password2){
+        Admin.updateOne(
+            { _id: id }, 
+            { $set: { password: password2 } } 
+         )
+         res.render('login');
+       }
+       else{
+       alert('password do not match');
+       res.render('resetpassword');
+       }
+})
 router.get('/search', async (req, res) => {
   try {
       const { name } = req.query;
