@@ -291,8 +291,8 @@ button {
     display: inline-block; /* Ensure it's displayed as a block element */
 }
 .raw{
-   width: 20px; /* Set width and height to create a square */
-    height: 20px;
+   width: 5px; /* Set width and height to create a square */
+    height: 5px;
 }
    </style>
 </head>
@@ -309,19 +309,21 @@ button {
         <img src="data:image/jpeg;base64,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" alt="Profile Image">
     </a>
     <div class="raw"></div>
-      <a href="/" class="mr-5 hover:text-gray-900">Home</a>
       {{#if admin}}
+        <a href="/" class="mr-5 hover:text-gray-900">Admin</a>
       <a href="/index" class="mr-5 hover:text-gray-900">Dashboard</a>
-      {{else}}
-      <a href="/signup" class="mr-5 hover:text-gray-900">SignUp</a>
+      {{else if user}}
+       <a href="/" class="mr-5 hover:text-gray-900">User</a>
         {{/if}}
+          <a href="/" class="mr-5 hover:text-gray-900">Support</a>
+             <a href="/" class="mr-5 hover:text-gray-900">Contact</a>
     </nav>
    
     <nav>
     {{#if admin}}
-       <button class="btn2"> <a href="/logout">Logout Admin</a></button>
+       <button class="btn2"> <a href="/logout">Logout</a></button>
     {{else if user}}
-        <button class="btn2"><a href="/logout">Logout User</a></button>
+        <button class="btn2"><a href="/logout">Logout</a></button>
     {{else}}
        <button class="btn2"><a href="/login">Login</a></button> 
     {{/if}}
