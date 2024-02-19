@@ -1,6 +1,6 @@
-const requireauth=(req,res)=>{
+const requireauth=(req,res,next)=>{
     if(!req.session.admin){
-        res.redirect('/login');
+       return res.redirect('/login');
     }
     next();
 }

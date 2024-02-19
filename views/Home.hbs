@@ -264,21 +264,36 @@ button {
   }
 }
 .btn2{
-    background-color: #007bff; /* Set the background color */
-    color: #fff; /* Set the text color */
-    padding: 0.5px 26px; /* Add padding to the button */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Add border radius to create rounded corners */
-    font-size: 16px; /* Set font size */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    transition: background-color 0.3s; /* Add transition effect for smoother hover effect */
-}
+    background-color: #007bff;
+    color: #fff; 
+    padding: 0.5px 26px; 
+    border: none; 
+    border-radius: 4px; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; }
 
 /* Hover effect */
 .btn2:hover {
-    background-color: #0056b3; /* Change background color on hover */
+    background-color: #0056b3;
+}
+.profile-icon img {
+    width: 100%; /* Ensure the image fills the circular container */
+    height: 100%;
+    border-radius: 50%; /* Maintain the circular shape */
 }
 
+.profile-icon {
+    width: 40px; /* Set width and height to create a square */
+    height: 40px;
+    border-radius: 50%; /* Make it circular by setting border radius to 50% */
+    background-color: #007bff; /* Background color of profile icon */
+    display: inline-block; /* Ensure it's displayed as a block element */
+}
+.raw{
+   width: 20px; /* Set width and height to create a square */
+    height: 20px;
+}
    </style>
 </head>
 <body>
@@ -290,15 +305,18 @@ button {
       <span class="ml-3 text-xl">My Shop</span>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+       <a href="#" class="profile-icon">
+        <img src="data:image/jpeg;base64,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" alt="Profile Image">
+    </a>
+    <div class="raw"></div>
       <a href="/" class="mr-5 hover:text-gray-900">Home</a>
-      <a class="mr-5 hover:text-gray-900">Order</a>
       {{#if admin}}
       <a href="/index" class="mr-5 hover:text-gray-900">Dashboard</a>
       {{else}}
       <a href="/signup" class="mr-5 hover:text-gray-900">SignUp</a>
         {{/if}}
     </nav>
-    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+   
     <nav>
     {{#if admin}}
        <button class="btn2"> <a href="/logout">Logout Admin</a></button>
@@ -307,6 +325,7 @@ button {
     {{else}}
        <button class="btn2"><a href="/login">Login</a></button> 
     {{/if}}
+ 
 </nav>
       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
         <path d="M5 12h14M12 5l7 7-7 7"></path>

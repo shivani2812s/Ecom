@@ -10,12 +10,12 @@ const userController=require('../controller/userController');
 const adminController=require('../controller/adminController');
 const Products=require('../model/productModel');
 const Admin = require('../model/adminModel');
-
+const requireauth=require('../middleware/protected');
 
 
 const JWT_SECRET='xyz';
 
-router.get('/index',viewindex.viewindex);
+router.get('/index',requireauth,viewindex.viewindex);
 
 router.get('/',viewindex.viewHome);
 
@@ -58,7 +58,7 @@ router.post('/updateProduct/:id',productController.updateProduct);
 
 router.get('/forgotpassword',adminController.forgotpassword);
 
-router.post('/forgotpassword',async(req,res,next)=>{
+router.post('/forgotpassword',async(req,res)=>{
     const{email}=req.body;
     const user = await Admin.findOne({ email });
     if(!user){
@@ -100,13 +100,13 @@ const mailOptions = {
     res.status(200).send('Reset password link sent successfully.');
   });
 });
-router.get('/forgotpassword/:id/:token',(req,res,next)=>{
+router.get('/forgotpassword/:id/:token',(req,res)=>{
 
    const{id,token}=req.params;
    const user= Admin.findOne({ _id:id });
     res.render('resetpassword',{email:user.email});
 })
-router.post('/forgotpassword/:id/:token',(req,res,next)=>{
+router.post('/forgotpassword/:id/:token',(req,res)=>{
     const{id,token}=req.params;
     const{password,password2}=req.body;
     const user= Admin.findOne({ _id:id });
